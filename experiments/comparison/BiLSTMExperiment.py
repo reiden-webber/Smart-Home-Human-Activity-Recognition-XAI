@@ -12,11 +12,12 @@ from progress.bar import *
 from sklearn.model_selection import StratifiedKFold
 
 import tensorflow as tf
-from tensorflow.keras.models import *
-from tensorflow.keras.layers import *
-from tensorflow.keras.utils import *
-from tensorflow.keras.callbacks import *
-from tensorflow.keras.activations import *
+from tensorflow import keras 
+from keras.models import *
+from keras.layers import *
+from keras.utils import *
+from keras.callbacks import *
+from keras.activations import *
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
@@ -107,17 +108,16 @@ class BiLSTMExperiment(Experiment):
             self.classifier_data_X_train.append(np.array(self.classifier_data_X)[train])
             self.classifier_data_Y_train.append(np.array(self.classifier_data_Y)[train])
 
-
             self.classifier_data_X_test.append(np.array(self.classifier_data_X)[test])
             self.classifier_data_Y_test.append(np.array(self.classifier_data_Y)[test])
         
         bar.next()
 
-        self.classifier_data_X_train = np.array(self.classifier_data_X_train)
-        self.classifier_data_Y_train = np.array(self.classifier_data_Y_train)
+        self.classifier_data_X_train = np.concatenate(self.classifier_data_X_train)
+        self.classifier_data_Y_train = np.concatenate(self.classifier_data_Y_train)
 
-        self.classifier_data_X_test = np.array(self.classifier_data_X_test)
-        self.classifier_data_Y_test = np.array(self.classifier_data_Y_test)
+        self.classifier_data_X_test = np.concatenate(self.classifier_data_X_test)
+        self.classifier_data_Y_test = np.concatenate(self.classifier_data_Y_test)
         bar.next()
 
         if self.DEBUG:

@@ -11,5 +11,5 @@
     "nb_splits" : 3,
     "sequence_lenght" : 2000,
     "patience" : 20,
-    "Activity_renamed" : true
+    "activity_renamed" : true
 }

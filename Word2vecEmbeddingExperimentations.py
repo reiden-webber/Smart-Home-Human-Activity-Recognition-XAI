@@ -32,7 +32,6 @@ if __name__ == '__main__':
 
     args = p.parse_args()
     data = str(args.data)
-    
 
     if data == "aruba":
         dataset = Aruba()
@@ -45,6 +44,7 @@ if __name__ == '__main__':
     elif data == "ordonezB":
         dataset = HouseB()
     else:
+        dataset = Cairo()
         print("UNKNOWED DATASET")
 
     print(dataset.name)
